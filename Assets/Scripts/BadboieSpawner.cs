@@ -8,6 +8,7 @@ public class BadboieSpawner: MonoBehaviour {
 	public float spawnFrequency = 0f;
 	public float ennemiesSpeed = 0f;
 	public LineRenderer badboiesPath = null;
+	public GameState gameState = null;
 
 	// Internals
 	private float timeUntilNextSpawn = 0f;
@@ -16,6 +17,9 @@ public class BadboieSpawner: MonoBehaviour {
 	}
 
 	void Update() {
+		if(gameState.gameFinished)
+			return;
+
 		timeUntilNextSpawn -= Time.deltaTime;
 
 		if(timeUntilNextSpawn < 0f) {
