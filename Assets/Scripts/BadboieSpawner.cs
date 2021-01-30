@@ -9,12 +9,10 @@ public class BadboieSpawner: MonoBehaviour {
 	public float ennemiesSpeed = 0f;
 	public LineRenderer badboiesPath = null;
 	public GameState gameState = null;
+	public int numberOfBadboies = 0;
 
 	// Internals
 	private float timeUntilNextSpawn = 0f;
-
-	void Start() {
-	}
 
 	void Update() {
 		if(gameState.gameFinished)
@@ -25,9 +23,15 @@ public class BadboieSpawner: MonoBehaviour {
 		if(timeUntilNextSpawn < 0f) {
 			timeUntilNextSpawn = spawnFrequency;
 			// Spawn a new badboie and set its parameters
-			var badboie = Instantiate(badboiePrefab, badboiesPath.GetPosition(0), Quaternion.identity);
-			badboie.GetComponent<Badboie>().path = badboiesPath;
-			badboie.GetComponent<Badboie>().speed = ennemiesSpeed;
+			if(numberOfBadboies > 0) {
+				var badboie = Instantiate(badboiePrefab, badboiesPath.GetPosition(0), Quaternion.identity);
+				badboie.GetComponent<Badboie>().path = badboiesPath;
+				badboie.GetComponent<Badboie>().speed = ennemiesSpeed;
+			} else {
+				// End of the game, we win!
+				gameState.gameFinished = true;
+				return;
+			}
 		}
 	}
 }

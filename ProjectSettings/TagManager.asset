@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Badboie
+  - Bullet
   layers:
   - Default
   - TransparentFX

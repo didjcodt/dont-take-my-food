@@ -52,4 +52,8 @@ public class Badboie: MonoBehaviour {
 		}
 	}
 
+	public void ApplyDamage(float damage) {
+		Destroy(gameObject);
+	}
+
 }

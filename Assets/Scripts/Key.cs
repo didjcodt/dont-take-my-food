@@ -46,8 +46,8 @@ public class Key: MonoBehaviour {
 				mvt = new Vector2(0f, -1f);
 				break;
 			case KeyPress.Fire:
-				Debug.Log("NOT FIRING");
-				break;
+				player.SpawnTurret();
+				return;
 		};
 		player.Move(force * mvt);
 	}

@@ -7,7 +7,8 @@ public class GameState : MonoBehaviour {
 	public Collider2D objective = null;
 
 	// Internals
-	public bool gameFinished { get; private set; }
+	public bool gameFinished { get; set; }
+	public bool gameLost { get; private set; }
 
 	void Start() {
 	}
@@ -18,6 +19,7 @@ public class GameState : MonoBehaviour {
 
 		if(objective.GetComponent<TriggeredByBadboie>().isTriggered) {
 			gameFinished = true;
+			gameLost = true;
 		}
 	}
 }
