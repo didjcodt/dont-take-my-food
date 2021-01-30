@@ -15,9 +15,18 @@ public class Key: MonoBehaviour {
 	public PlayerController player = null;
 	public float force = 0f;
 	public KeyPress keyToPress = KeyPress.Left;
+	public Sprite released = null;
+	public Sprite pressed = null;
 
 	// Internals
 	private bool isTriggered;
+
+	void Update() {
+		if(isTriggered)
+			gameObject.GetComponent<SpriteRenderer>().sprite = pressed;
+		else
+			gameObject.GetComponent<SpriteRenderer>().sprite = released;
+	}
 
 	void FixedUpdate() {
 		if(!isTriggered) return;
@@ -43,9 +52,10 @@ public class Key: MonoBehaviour {
 		player.Move(force * mvt);
 	}
 
-	private void OnTriggerEnter2D(Collider2D collider) {
+	private void OnTriggerStay2D(Collider2D collider) {
+		// Trigger key press only when the hammer presses it
 		if(collider.gameObject.tag == "Badboie")
-			isTriggered = true;
+			isTriggered = collider.gameObject.GetComponent<Badboie>().hammerPressed;
 	}
 
 	private void OnTriggerExit2D(Collider2D collider) {

@@ -26,8 +26,8 @@ public class BadboieSpawner: MonoBehaviour {
 			timeUntilNextSpawn = spawnFrequency;
 			// Spawn a new badboie and set its parameters
 			var badboie = Instantiate(badboiePrefab, badboiesPath.GetPosition(0), Quaternion.identity);
-			badboie.GetComponent<LineFollower>().path = badboiesPath;
-			badboie.GetComponent<LineFollower>().speed = ennemiesSpeed;
+			badboie.GetComponent<Badboie>().path = badboiesPath;
+			badboie.GetComponent<Badboie>().speed = ennemiesSpeed;
 		}
 	}
 }

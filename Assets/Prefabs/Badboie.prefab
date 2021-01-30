@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6999232229925445980}
   - component: {fileID: 630104479494959644}
   - component: {fileID: 6485367511389207688}
-  - component: {fileID: 8928518677185965056}
   - component: {fileID: 159730254949447567}
+  - component: {fileID: 3220486830639667460}
   m_Layer: 0
   m_Name: Badboie
   m_TagString: Badboie
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447106055777157983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19301891, y: -2.359161, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 315859740905268986, guid: 211dd29437b6d1795a61499caae2b103, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,22 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 0}
   speed: 0
---- !u!58 &8928518677185965056
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447106055777157983}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  spriteRenderer: {fileID: 630104479494959644}
+  releasedHammer: {fileID: 315859740905268986, guid: 211dd29437b6d1795a61499caae2b103, type: 3}
+  pressedHammer: {fileID: -3968061716893136662, guid: 211dd29437b6d1795a61499caae2b103, type: 3}
+  pressSpeed: 0.3
 --- !u!50 &159730254949447567
 Rigidbody2D:
   serializedVersion: 4
@@ -136,3 +124,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &3220486830639667460
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447106055777157983}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.065020055, y: -0.28902832}
+  m_Size: {x: 1.1339248, y: 0.42194682}
+  m_Direction: 1
