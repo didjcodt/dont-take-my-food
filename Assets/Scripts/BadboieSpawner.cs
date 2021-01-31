@@ -24,12 +24,13 @@ public class BadboieSpawner: MonoBehaviour {
 			timeUntilNextSpawn = spawnFrequency;
 			// Spawn a new badboie and set its parameters
 			if(numberOfBadboies > 0) {
+				numberOfBadboies--;
 				var badboie = Instantiate(badboiePrefab, badboiesPath.GetPosition(0), Quaternion.identity);
 				badboie.GetComponent<Badboie>().path = badboiesPath;
 				badboie.GetComponent<Badboie>().speed = ennemiesSpeed;
 			} else {
-				// End of the game, we win!
-				gameState.gameFinished = true;
+				// End of the game for us
+				gameState.noMoreBadboies = true;
 				return;
 			}
 		}

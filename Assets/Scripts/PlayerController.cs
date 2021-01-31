@@ -12,7 +12,7 @@ public class PlayerController: MonoBehaviour {
 	// Internals
 	private Rigidbody2D rb2d;
 	private Animator anim;
-	private float timeToNextTurret = 0f;
+	public float timeToNextTurret { get; private set; }
 
 	void Start() {
 		rb2d = GetComponent<Rigidbody2D>();
@@ -40,7 +40,7 @@ public class PlayerController: MonoBehaviour {
 		if(timeToNextTurret > 0f) return;
 
 		Instantiate(turretPrefab,
-				new Vector3(transform.position.x, transform.position.y, -1),
+				new Vector3(transform.position.x, transform.position.y, 10),
 				transform.rotation);
 		timeToNextTurret = turretCooldown;
 	}

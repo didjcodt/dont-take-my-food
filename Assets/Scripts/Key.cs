@@ -26,6 +26,11 @@ public class Key: MonoBehaviour {
 			gameObject.GetComponent<SpriteRenderer>().sprite = pressed;
 		else
 			gameObject.GetComponent<SpriteRenderer>().sprite = released;
+
+		// For spawning, the cooldown is displayed in the button
+		if(keyToPress == KeyPress.Fire && player.timeToNextTurret > 0f) {
+			gameObject.GetComponent<SpriteRenderer>().sprite = pressed;
+		}
 	}
 
 	void FixedUpdate() {
